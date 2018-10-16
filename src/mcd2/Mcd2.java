@@ -4,7 +4,7 @@ public class Mcd2 {
 
     public static void main(String[] args) {
         try {
-            System.out.println(mcd(21, 21));
+            System.out.println(mcd(0, 21));
         } catch (ExceptionMinore e) {
             System.out.println(e);
         }
@@ -14,12 +14,13 @@ public class Mcd2 {
         int mcd;
         if (b == 0) {
             return a;
+        } else if (a == 0) {
+            return b;
         } else {
             if (a >= b) {
                 mcd = mcd(b, a % b);
             } else {
                 mcd = mcd(a, b % a);
-//                throw new ExceptionMinore("b deve essere > di a");
             }
         }
         return mcd;
