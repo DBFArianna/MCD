@@ -18,7 +18,8 @@ public class Mcd2 {
             if (a >= b) {
                 mcd = mcd(b, a % b);
             } else {
-                throw new ExceptionMinore("b deve essere > di a");
+                mcd = mcd(a, b % a);
+//                throw new ExceptionMinore("b deve essere > di a");
             }
         }
         return mcd;
