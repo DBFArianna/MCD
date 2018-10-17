@@ -26,7 +26,7 @@ public class Mcd2 {
             if (a >= b) {
 //                postcondizioni
                 mcd = mcd(b, a % b);
-                assert mcd >= 0 : "Errore di caloclo interno: Mcd negativo";
+                assert mcd >= 0 : "Errore di calcolo interno: Mcd negativo";
                 assert a % mcd == 0 && b % mcd == 0 : "Errore: l'mcd non è nemmeno un divisore";
             } else {
 //                postcondizioni
