@@ -6,7 +6,7 @@ public class Mcd2 {
         try {
             System.out.println(mcd(0, 21));
         } catch (ExceptionMinore e) {
-            System.out.println(e);
+
         }
     }
 
