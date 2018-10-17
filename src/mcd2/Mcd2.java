@@ -6,8 +6,7 @@ public class Mcd2 {
         try {
             System.out.println(mcd(45, 21));
         } catch (ExceptionMinore e) {
-//            NO SE DEVO CONSEGNARE AD UN UNTENTE!!!!!
-            System.exit(45);
+
         }
     }
 
@@ -27,22 +26,13 @@ public class Mcd2 {
             if (a >= b) {
 //                postcondizioni
                 mcd = mcd(b, a % b);
-                
-                if (mcd < 0) {
-                    throw new ExceptionMinore(3);
-                }
-                if (!(a % mcd == 0 && b % mcd == 0)) {
-                    throw new ExceptionMinore(4);
-                }
+                assert mcd >= 0 : "Errore di caloclo interno: Mcd negativo";
+                assert a % mcd == 0 && b % mcd == 0 : "Errore: l'mcd non è nemmeno un divisore";
             } else {
 //                postcondizioni
                 mcd = mcd(a, b % a);
-                if (mcd < 0) {
-                    throw new ExceptionMinore(3);
-                }
-                if (!(a % mcd == 0 && b % mcd == 0)) {
-                    throw new ExceptionMinore(4);
-                }
+                assert mcd >= 0 : "Errore di caloclo interno: Mcd negativo";
+                assert a % mcd == 0 && b % mcd == 0 : "Errore: l'mcd non è nemmeno un divisore";
             }
         }
         return mcd;
@@ -58,14 +48,6 @@ public class Mcd2 {
                     break;
                 case 2:
                     s = "secondo parametro negativo";
-                    break;
-                case 3:
-                    System.out.println("Metodo MCD: valore mcd negativo"); 
-                    System.exit(46);
-                    break;
-                case 4:
-                    System.out.println("Metodo MCD: Resto diverso da 0");
-                    System.exit(54);
                     break;
                 default:
                     s = "Eccezione non getita";
