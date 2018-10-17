@@ -6,14 +6,18 @@ public class Mcd2 {
         try {
             System.out.println(mcd(0, 21));
         } catch (ExceptionMinore e) {
-
+//            NO SE DEVO CONSEGNARE AD UN UNTENTE!!!!!
+            System.exit(45);
         }
     }
 
     public static int mcd(int a, int b) throws ExceptionMinore {
         int mcd;
-        if (a < 0 || b < 0) {
-            throw new ExceptionMinore("I dati non possono essere minori di 0");
+        if (a < 0) {
+            throw new ExceptionMinore(1);
+        }
+        if (b < 0) {
+            throw new ExceptionMinore(2);
         }
         if (b == 0) {
             return a;
@@ -28,12 +32,23 @@ public class Mcd2 {
         }
         return mcd;
     }
-}
 
-class ExceptionMinore extends Exception {
+    private static class ExceptionMinore extends Exception {
 
-    public ExceptionMinore(String s) {
-        System.out.println(s);
-        System.exit(1);
+        public ExceptionMinore(int nError) {
+            String s = "";
+            switch (nError) {
+                case 1:
+                    s = "Primo parametro negativo";
+                    break;
+                case 2:
+                    s = "secondo parametro negativo";
+                    break;
+                default:
+                    s = "Eccezione non getita";
+            }
+            System.out.println("Metodo MCD: " + s);
+        }
     }
+
 }
