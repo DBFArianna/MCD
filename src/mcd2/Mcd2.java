@@ -12,6 +12,9 @@ public class Mcd2 {
 
     public static int mcd(int a, int b) throws ExceptionMinore {
         int mcd;
+        if (a < 0 || b < 0) {
+            throw new ExceptionMinore("I dati non possono essere minori di 0");
+        }
         if (b == 0) {
             return a;
         } else if (a == 0) {
